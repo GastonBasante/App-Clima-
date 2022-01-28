@@ -1,0 +1,106 @@
+
+<div class="loading" *ngIf="isLoadingPlaces"  >
+    <h5>Cargando</h5>
+    <span>Espere por favor...</span>
+</div>
+<div class="txtError" *ngIf="">
+    <p >Por favor ingrese una ciudad o pais valido</p>
+</div>
+
+
+    <div  *ngIf="places.length > 0 ">
+   
+        <div class="search-result">
+            <hr>
+            <ul
+            *ngFor="let place of places"
+            class=""
+            (click)="irUbicacion( place )"
+            >
+            
+            <li>{{place.text_es}}</li>
+            
+            <small>{{place.place_name}}</small>
+            
+            </ul>
+        </div>
+
+    
+
+
+
+
+
+
+    </div>
+
+    <div class="clima" *ngIf="getPais"  >
+
+
+        <div *ngFor="let clima of climaArr">
+            
+
+            <div class="clima-info">
+                
+
+                <div class="header-clima">
+                    <p>Informacion meteorologica de <strong>{{clima.name}}</strong></p>
+                    <div class="icon">
+                        <img src="https://openweathermap.org/img/wn/{{clima.weather[0].icon}}@2x.png" alt="">
+                        <h1>{{clima.main.temp|number: '1.0-0'}}</h1>
+                        <small>°C</small>
+                    </div>
+
+
+                    <div class="temp">
+                        <p>{{clima.weather[0].description| uppercase |titlecase}}</p>
+                        
+                    </div>
+
+
+                </div>
+                
+
+
+                
+
+
+            </div>
+
+
+
+            <mat-expansion-panel (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-description>
+            Detalle del Clima {{panelOpenState ? 'cerrar' : 'abrir'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+
+          
+                <p><strong>Humedad:</strong>  {{clima.main.humidity}} %</p>
+                <p><strong>Sensación térmica:</strong>  {{clima.main.feels_like}} °C</p>
+                <p><strong>Viento:</strong> a  {{clima.wind.speed}} Km/h</p>
+                <p><strong>Nubosidad:</strong> {{clima.clouds.all}} %</p>
+
+            
+
+
+            </mat-expansion-panel>
+
+
+        </div>
+        
+        
+   
+
+    </div>
+
+
+
+
+    
+       
+
+
+

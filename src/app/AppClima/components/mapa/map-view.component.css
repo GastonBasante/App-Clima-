@@ -1,0 +1,11 @@
+
+
+.map-container {
+   height: 87%;
+    position: fixed;
+    z-index: -1;
+    width: 96%;
+    margin: 20px;
+    right: 5px;
+
+}

@@ -1,0 +1,82 @@
+.pointer {
+    cursor: pointer;
+}
+
+p {
+    font-size: 12px;
+}
+
+
+ul{
+
+    list-style:none;
+    padding: 0px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.txtError{
+    text-align: center;
+    color: red;
+}
+
+
+.loading{
+    background-color: #F5F5F5;
+    text-align: center;
+}
+
+
+ul:hover{
+background-color: #F5F5F5;
+}
+
+
+/* clima */
+.header-clima{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.clima{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.icon{
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.temp{
+    
+    display: flex;
+    flex-direction: row;
+}
+.icon h1{
+font-size: 40px;
+margin: 0px;
+}
+.icon small{
+    padding-bottom: 20px
+}
+
+
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .mat-expansion-panel{
+box-shadow: none ;
+  }

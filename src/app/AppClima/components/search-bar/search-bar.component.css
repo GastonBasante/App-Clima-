@@ -1,0 +1,31 @@
+
+
+.search-container {
+    /* left: 20px; */
+    /* position: fixed; */
+    /* top: 20px; */
+
+    min-width: 250px;
+    max-width: 250px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.container{
+    text-align: center;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+
+  .icon{
+    padding-top: 10px;
+  }

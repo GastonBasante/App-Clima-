@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 })
 export class ApiClimaService {
 
-  public BaseUrl = 'https://api.openweathermap.org/data/2.5/weather'
+
 
   
   public climaArr:any[] = []
@@ -29,7 +29,7 @@ getClima(lat:number,lng:number){
     appid: environment.TokenClima
   }
   
- this.http.get<ClimaResp>(this.BaseUrl,{params})
+ this.http.get<ClimaResp>(environment.baseUrlWeather,{params})
  .pipe(
   tap(({coord,main,name,visibility,weather,wind,clouds})=>
   

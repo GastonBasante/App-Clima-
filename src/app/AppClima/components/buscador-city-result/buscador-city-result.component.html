@@ -3,34 +3,23 @@
     <h5>Cargando</h5>
     <span>Espere por favor...</span>
 </div>
-<div class="txtError" *ngIf="">
-    <p >Por favor ingrese una ciudad o pais valido</p>
-</div>
-
-
     <div  *ngIf="places.length > 0 ">
    
-        <div class="search-result">
+        <div >
             <hr>
             <ul
+            class="search-result"
             *ngFor="let place of places"
-            class=""
             (click)="irUbicacion( place )"
             >
             
-            <li>{{place.text_es}}</li>
+            <li style="font-weight: 500;">{{place.text_es}}</li>
             
-            <small>{{place.place_name}}</small>
+            <small style="color: gray;">{{place.place_name}}</small>
+            
             
             </ul>
         </div>
-
-    
-
-
-
-
-
 
     </div>
 
@@ -60,32 +49,21 @@
 
                 </div>
                 
-
-
-                
-
-
             </div>
-
 
 
             <mat-expansion-panel (opened)="panelOpenState = true"
             (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
             <mat-panel-description>
-            Detalle del Clima {{panelOpenState ? 'cerrar' : 'abrir'}}
+            Detalles del Clima 
             </mat-panel-description>
             </mat-expansion-panel-header>
-
-          
                 <p><strong>Humedad:</strong>  {{clima.main.humidity}} %</p>
                 <p><strong>Sensación térmica:</strong>  {{clima.main.feels_like}} °C</p>
                 <p><strong>Viento:</strong> a  {{clima.wind.speed}} Km/h</p>
                 <p><strong>Nubosidad:</strong> {{clima.clouds.all}} %</p>
-
-            
-
-
+                <p><strong>Presión Atmosférica:</strong> {{clima.main.pressure}} hPa</p>
             </mat-expansion-panel>
 
 

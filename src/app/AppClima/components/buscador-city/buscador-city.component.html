@@ -1,0 +1,22 @@
+
+<div class="search-container">
+  
+    <!-- <h4 style="text-align: center; margin: 0px;">Aplicacion Meteorologica</h4> -->
+      <div class="container">
+        <mat-icon style="padding-right: 10px ;">search</mat-icon>
+          
+              <mat-form-field >
+                
+                <input 
+                
+                matInput 
+                #txtQuery 
+                placeholder="Buscar Ciudad o Pais"
+                (keyup)="buscador(txtQuery.value)"
+                autocomplete="off"
+                >
+              </mat-form-field>
+      </div>
+  <app-buscador-city-result></app-buscador-city-result>
+  </div>
+  

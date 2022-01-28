@@ -7,9 +7,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppClimaModule } from './AppClima/app-clima.module';
 
+import { MaterialModule } from './material/material/material.module';
+import { SharedModule } from './shared/shared.module';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +21,8 @@ import { AppClimaModule } from './AppClima/app-clima.module';
     BrowserAnimationsModule,
     HttpClientModule,
     AppClimaModule,
+    MaterialModule,
+    SharedModule
     
   ],
   providers: [],

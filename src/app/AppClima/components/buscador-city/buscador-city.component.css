@@ -4,8 +4,9 @@
     /* left: 20px; */
     /* position: fixed; */
     /* top: 20px; */
-
-    min-width: 250px;
+    margin-top: 20px;
+    margin-left: 20px;
+    min-width: 270px;
     max-width: 250px;
     background-color: white;
     border-radius: 5px;
@@ -16,14 +17,12 @@
 }
 
 .container{
-    text-align: center;
+  padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-
-.example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
   
 
   .icon{

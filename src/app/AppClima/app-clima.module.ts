@@ -6,11 +6,12 @@ import { CommonModule } from '@angular/common';
 
 import { AppClimaRoutingModule } from './app-clima-routing.module';
 import { InicioComponent } from './pages/inicio/inicio.component';
-import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { MaterialModule } from '../material/material/material.module';
-import { MapViewComponent } from './components/mapa/map-view.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { MapViewComponent } from './components/mapa-view/map-view.component';
+import { BuscadorCityComponent } from './components/buscador-city/buscador-city.component';
+import { BuscadorCityResultComponent } from './components/buscador-city-result/buscador-city-result.component';
+
+
 
 
 
@@ -18,17 +19,17 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 @NgModule({
   declarations: [
     InicioComponent,
-    SearchBarComponent,
     MapViewComponent,
-    NavBarComponent,
-    SearchResultsComponent,
+    BuscadorCityComponent,
+    BuscadorCityResultComponent,
     
 
   ],
   imports: [
     CommonModule,
     AppClimaRoutingModule,
-    MaterialModule
+    MaterialModule,
+
   ],
 })
 export class AppClimaModule { }

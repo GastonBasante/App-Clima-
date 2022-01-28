@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BuscarCiudadService } from '../../services/buscarCiudad.service';
 
 @Component({
-  selector: 'app-search-bar',
-  templateUrl: './search-bar.component.html',
-  styleUrls: ['./search-bar.component.css']
+  selector: 'app-buscador-city',
+  templateUrl: './buscador-city.component.html',
+  styleUrls: ['./buscador-city.component.css']
 })
-export class SearchBarComponent implements OnInit {
-
+export class BuscadorCityComponent implements OnInit {
 
   private debounceTimer?: NodeJS.Timeout;
   public getPais:boolean = false
@@ -21,7 +20,7 @@ export class SearchBarComponent implements OnInit {
 
 
 
-  onQueryChanged( query: string = '' ) {
+  buscador( query: string = '' ) {
     if(query==''){
       this.BuscarCiudadService.deletePlaces()
       
@@ -29,11 +28,10 @@ export class SearchBarComponent implements OnInit {
     if ( this.debounceTimer ) clearTimeout( this.debounceTimer );
 
     this.debounceTimer = setTimeout(() => {
-      this.BuscarCiudadService.getPlacesByQuery( query );
+      this.BuscarCiudadService.getUbicacion( query );
       this.BuscarCiudadService.getPais$.emit(false)
     }, 350 );    
     
   }
-
 
 }

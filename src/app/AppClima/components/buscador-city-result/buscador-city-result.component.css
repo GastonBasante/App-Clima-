@@ -2,6 +2,18 @@
     cursor: pointer;
 }
 
+
+
+.search-result{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
 p {
     font-size: 12px;
 }
@@ -16,11 +28,6 @@ ul{
 .flex{
     display: flex;
     flex-direction: row;
-}
-
-.txtError{
-    text-align: center;
-    color: red;
 }
 
 

@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { EventEmitter, Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { LngLatLike, Map, Marker} from 'mapbox-gl';
-import { Feature, PlacesResponse } from '../interfaces/places';
-import {catchError, map, tap} from 'rxjs/operators'
+import { PlacesResponse } from '../interfaces/places';
+import {catchError, tap} from 'rxjs/operators'
 import { of } from "rxjs";
 
 @Injectable({
@@ -24,12 +24,12 @@ export class BuscarCiudadService {
     public places: any[] = [];
     private map?: Map;
 
-    public baseUrl = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
+    
 
 
     getPais$ = new EventEmitter<boolean>()
 
-getPlacesByQuery( query: string = '' ) {
+getUbicacion( query: string = '' ) {
     if(query == '') return;
     if ( query.length === 0 ) {
       this.isLoadingPlaces = false;
@@ -47,7 +47,7 @@ getPlacesByQuery( query: string = '' ) {
         proximity:[-58.41739616921034,-34.605488644615285]
     }
 
-    this.http.get<PlacesResponse>(`${this.baseUrl}${ query }.json`, {params})
+    this.http.get<PlacesResponse>(`${environment.baseUrlMap}${ query }.json`, {params})
     .pipe(
       tap(resp =>{
         this.places = resp.features;
@@ -57,7 +57,8 @@ getPlacesByQuery( query: string = '' ) {
     )
     .subscribe( resp => {
       this.isLoadingPlaces = false;
-
+      // console.log(this.places);
+      
         
       });
 

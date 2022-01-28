@@ -1,15 +1,14 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Feature } from '../../interfaces/places';
-import { ApiClimaService } from '../../services/api-clima.service';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BuscarCiudadService } from '../../services/buscarCiudad.service';
-
+import { ApiClimaService } from '../../services/api-clima.service';
+import { Feature } from '../../interfaces/places';
 
 @Component({
-  selector: 'app-search-results',
-  templateUrl: './search-results.component.html',
-  styleUrls: ['./search-results.component.css']
+  selector: 'app-buscador-city-result',
+  templateUrl: './buscador-city-result.component.html',
+  styleUrls: ['./buscador-city-result.component.css']
 })
-export class SearchResultsComponent implements AfterViewInit, OnInit{
+export class BuscadorCityResultComponent implements OnInit , AfterViewInit {
 
   public selectedId: string = '';
 
@@ -54,7 +53,7 @@ export class SearchResultsComponent implements AfterViewInit, OnInit{
     this.selectedId = place.id;
     this.BuscarCiudadService.deletePlaces()
     const [ lng, lat ] = place.center;
-    console.log(lng, lat);
+    // console.log(lng, lat);
     
     this.BuscarCiudadService.flyTo([lng,lat]);
    

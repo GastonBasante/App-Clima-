@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BuscarCiudadService } from '../../services/buscarCiudad.service';
 import { LngLatLike } from 'mapbox-gl';
 import { ApiClimaService } from '../../services/api-clima.service';
+import { query } from '@angular/animations';
 
 @Component({
   selector: 'app-buscador-city',
@@ -44,12 +45,12 @@ export class BuscadorCityComponent implements OnInit {
   location(){
     this.BuscarCiudadService.getUserLocation()
     .then(resp=>{
-      const [lat,lng] = this.BuscarCiudadService.userLocation!
+      const [lat,lng] = resp
       this.ApiClimaService.getClima(lng,lat)
       this.BuscarCiudadService.flyTo(resp)
       this.BuscarCiudadService.getPais$.emit(true)
     })
-    .catch(resp=>console.log('No se ha permitido el acceso')
+    .catch(resp=>console.log('No se ha permitido el acceso',resp)
     )
   }
 

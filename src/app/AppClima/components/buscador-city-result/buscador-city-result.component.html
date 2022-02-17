@@ -33,7 +33,7 @@
                 
 
                 <div class="header-clima">
-                    <p>Informacion meteorologica de <strong>{{clima.name ? clima.name : 'Tu Ubicacion' }}</strong></p>
+                    <p>Informacion meteorologica de <strong>{{clima.name}}</strong></p>
                     <div class="icon">
                         <img src="https://openweathermap.org/img/wn/{{clima.weather[0].icon}}@2x.png" alt="">
                         <h1>{{clima.main.temp|number: '1.0-0'}}</h1>

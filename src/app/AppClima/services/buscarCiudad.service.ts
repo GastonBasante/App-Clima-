@@ -6,6 +6,7 @@ import { PlacesResponse } from '../interfaces/places';
 import {catchError, tap} from 'rxjs/operators'
 import { of } from "rxjs";
 
+
 @Injectable({
     providedIn: 'root'
   })
@@ -14,15 +15,24 @@ export class BuscarCiudadService {
 
   private marcador!: Marker
 
+  public userLocation?:[number,number];
+
+  get userLocationReady():boolean{
+    return !!this.userLocation;
+  }
 
 
-    constructor(private http:HttpClient){}
 
-    public useLocation?: [number, number];
 
-    public isLoadingPlaces: boolean = false;
-    public places: any[] = [];
-    private map?: Map;
+  public isLoadingPlaces: boolean = false;
+  public places: any[] = [];
+  private map?: Map;
+
+    constructor(private http:HttpClient){
+      // this.getUserLocation()
+    }
+
+
 
     
 
@@ -58,8 +68,6 @@ getUbicacion( query: string = '' ) {
     .subscribe( resp => {
       this.isLoadingPlaces = false;
       // console.log(this.places);
-      
-        
       });
 
   }
@@ -82,13 +90,6 @@ this.places = []
     .setLngLat( coords )
     .addTo( this.map!)
 
-
-
-    
-   
-
-
-
   }
 
 
@@ -97,6 +98,32 @@ this.places = []
     // console.log('se borra');
     
   }
+
+
+
+ public async getUserLocation():Promise<[number,number]>{
+
+  return new Promise((resolve, reject)=>{
+    navigator.geolocation.getCurrentPosition(({coords})=> 
+    {
+      this.userLocation = [coords.longitude,coords.latitude]
+      resolve(this.userLocation)
+    },
+    (err)=>{
+      alert('No se pudo obtener la Geolocalizacion! \nDebes de tener activada la ubicacion de tu Navegador');
+       console.log(err);
+       reject();
+       
+    }
+    
+    
+    );
+   
+  })
+
+
+ }
+
 
 
 

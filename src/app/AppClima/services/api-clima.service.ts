@@ -36,7 +36,7 @@ getClima(lat:number,lng:number){
       this.climaArr = [{coord,main,name,visibility,weather,wind,clouds}]
     ))
 .subscribe(resp=>{
-  console.log(this.climaArr);
+  // console.log(this.climaArr);
   
   
 

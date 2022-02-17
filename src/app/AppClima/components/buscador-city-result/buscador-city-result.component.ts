@@ -53,7 +53,7 @@ export class BuscadorCityResultComponent implements OnInit , AfterViewInit {
     this.selectedId = place.id;
     this.BuscarCiudadService.deletePlaces()
     const [ lng, lat ] = place.center;
-    console.log(lng, lat);
+    // console.log(lng, lat);
     
     this.BuscarCiudadService.flyTo([lng,lat]);
    

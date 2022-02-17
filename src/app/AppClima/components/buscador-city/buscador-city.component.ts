@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BuscarCiudadService } from '../../services/buscarCiudad.service';
+import { LngLatLike } from 'mapbox-gl';
+import { ApiClimaService } from '../../services/api-clima.service';
 
 @Component({
   selector: 'app-buscador-city',
@@ -10,7 +12,11 @@ export class BuscadorCityComponent implements OnInit {
 
   private debounceTimer?: NodeJS.Timeout;
   public getPais:boolean = false
-  constructor( private BuscarCiudadService:BuscarCiudadService  ) { }
+  public userLocation!:LngLatLike
+
+
+  constructor( private BuscarCiudadService:BuscarCiudadService,
+                private ApiClimaService: ApiClimaService  ) { }
 
 
   ngOnInit(): void {
@@ -33,5 +39,21 @@ export class BuscadorCityComponent implements OnInit {
     }, 350 );    
     
   }
+
+
+  location(){
+    this.BuscarCiudadService.getUserLocation()
+    .then(resp=>{
+      const [lat,lng] = this.BuscarCiudadService.userLocation!
+      this.ApiClimaService.getClima(lng,lat)
+      this.BuscarCiudadService.flyTo(resp)
+      this.BuscarCiudadService.getPais$.emit(true)
+    })
+    .catch(resp=>console.log('No se ha permitido el acceso')
+    )
+  }
+
+
+
 
 }
